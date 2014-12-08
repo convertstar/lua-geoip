@@ -1,7 +1,7 @@
 package = "lua-geoip"
 version = "scm-1"
 source = {
-   url = "git://github.com/agladysh/lua-geoip.git",
+   url = "git://github.com/convertstar/lua-geoip.git",
    branch = "master"
 }
 external_dependencies = {
@@ -11,7 +11,7 @@ external_dependencies = {
 }
 description = {
    summary = "Bindings for MaxMind's GeoIP library",
-   homepage = "http://github.com/agladysh/lua-geoip",
+   homepage = "http://github.com/convertstar/lua-geoip",
    license = "MIT/X11",
    maintainer = "Alexander Gladysh <agladysh@gmail.com>"
 }
@@ -45,6 +45,26 @@ build = {
          sources = {
             "src/database.c",
             "src/city.c"
+         },
+         incdirs = {
+            "src/"
+         },
+         libraries = { "GeoIP" }
+      },
+      ["geoip.isp"] = {
+         sources = {
+            "src/database.c",
+            "src/isp.c"
+         },
+         incdirs = {
+            "src/"
+         },
+         libraries = { "GeoIP" }
+      },
+      ["geoip.netspeed"] = {
+         sources = {
+            "src/database.c",
+            "src/netspeed.c"
          },
          incdirs = {
             "src/"
